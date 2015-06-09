@@ -9,7 +9,7 @@ exports.set_debug = function(val, file) {
             exports.DEBUG = true;
             exports.Debug = function(str) {
                 if (str)
-                    this.prg = 'debug:: ' + str 
+                    this.prg = 'debug:: ' + str
                         + ': ';
                 else
                     this.prg = 'debug:: ';
@@ -23,7 +23,7 @@ exports.set_debug = function(val, file) {
                             return fs.writeFile(exports.DBGLOG, new Buffer(str + "\n"), { flag : 'a' }, function(r){return;});
                         }
                     f ? isf = '()' : isf = '';
-    
+
                     if (this.freg) {
                         if (sstr) { // override freg
                             if (str)
@@ -33,11 +33,11 @@ exports.set_debug = function(val, file) {
 	                    }
                         return buf(this.prg + this.freg + '(): ' + str);
                     }
-    
+
                     if (sstr)
                         return buf(this.prg + str
                                 + isf + ': ' + sstr);
-    
+
                     return buf(this.prg + str);
                 };
                 return;
@@ -45,7 +45,7 @@ exports.set_debug = function(val, file) {
             exports.Debug.prototype.log = function(str, sstr, f) {
                 var isf;
                 f ? isf = '()' : isf = '';
-    
+
                 if (this.freg) {
                     if (sstr) { // override freg
                         if (str)
@@ -55,11 +55,11 @@ exports.set_debug = function(val, file) {
 	                }
                     return console.error(this.prg + this.freg + '(): ' + str);
                 }
-    
+
                 if (sstr)
                     return console.error(this.prg + str
                             + isf + ': ' + sstr);
-    
+
                 return console.error(this.prg + str);
             };
             return;

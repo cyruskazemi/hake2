@@ -1,7 +1,7 @@
 var _ = require('underscore');
 var Q = require('q');
 var Nightmare = require('nightmare');
-//var sitesJSON = require('./sites.json');
+var sitesJSON = require('./sites.json');
 
 var nightmare = new Nightmare({ loadImages : false });
 var promises = [],

@@ -24,7 +24,7 @@ if (process.argv[2])
 
 function usage()
 {
-    console.log('sieve.js - A FBA scraper\n\n' +
+    console.log('sieve.js - An FBA scraper\n\n' +
                 'usage: node ' + process.argv[1] + ' [options]\n\n' +
                 'options:\n' +
                 '-d           turn on debugging\n' +
@@ -34,10 +34,13 @@ function usage()
     process.exit(0);
 }
 
-var shovelnose = require('./shovelnose.js'), // needs to be require'd after for set_debug to kick in
+var Shovelnose = require('./shovelnose.js'), // needs to be require'd after for set_debug to kick in
+    sn = new Shovelnose();
     dbg = new common.Debug('sieve.js');
 
-shovelnose.then(function(r) {
+/*shovelnose.then(function(r) {
     dbg.log('ret', r);
     process.exit(0);
-});
+});*/
+
+sn.getResults();
